@@ -2,3 +2,10 @@
     display: flex;
     gap: calc(2vh - 5px);
 }
+
+
+.button {
+    background-color: #75abf1;
+    padding: 10px 20px;
+
+}
