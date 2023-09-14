@@ -1,13 +1,21 @@
 .todoitem{
+    background-color: rgb(239, 246, 255);
     display: flex;
     align-items: center;
-    padding: 1rem 0;
+    padding: 2rem;
+    margin-top: 1rem;
     font-size: 1.4rem;
     gap: calc(2vh - 5px);
+    border-radius: 5px;
+
 }
 
 .todoitem [type = "checkbox"]{
     transform: scale(2);
+}
+
+.felxContainer{
+    
 }
 
 .itemButton {
