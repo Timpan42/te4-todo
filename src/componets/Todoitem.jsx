@@ -11,8 +11,8 @@ function Todoitem(props){
             type="checkbox"
             />
             <label> {label} </label>
-            <button onClick={() => (props.deleteTodo(id))}>Delete</button>
-            <button onClick={() => (props.editTodo(id))}>Edit</button>
+            <button className='itemButton' onClick={() => (props.deleteTodo(id))}>Delete</button>
+            <button className='itemButton' onClick={() => (props.editTodo(id))}>Edit</button>
         </li>
     )
 }

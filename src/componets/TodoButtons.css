@@ -5,7 +5,19 @@
 
 
 .button {
-    background-color: #75abf1;
+    border: none;
+    background-color: rgb(162, 195, 238,0.8);
     padding: 10px 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+.button:hover{
+    background-color: #75abf1;
 
 }

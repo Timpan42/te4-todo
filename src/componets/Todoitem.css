@@ -9,3 +9,21 @@
 .todoitem [type = "checkbox"]{
     transform: scale(2);
 }
+
+.itemButton {
+    border: none;
+    background-color: rgba(31, 114, 56, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+.itemButton:hover{
+    background-color: #36be5f;
+
+}
