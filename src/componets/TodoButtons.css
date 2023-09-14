@@ -1,0 +1,4 @@
+.ButtonContainer{
+    display: flex;
+    gap: calc(2vh - 5px);
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Todoitem from './Todoitem'
+import TodoButtons from './TodoButtons'
 
 
 
@@ -11,23 +12,13 @@ function TodoList() {
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
     }, [todos])
-
-    const addTodo = () => {
-        const newTodo = document.getElementById('newTodo').value
-        if (newTodo === '') return
-        const newTodos = [...todos, { id: localStorage.getItem('index'), label: newTodo, completed: false }]
-        localStorage.setItem('index', parseInt(localStorage.getItem('index')) + 1 || parseInt(todos.lenght) + 1)
-        setTodos(newTodos)
-    }
-
+ 
     const toggleTaskCompleted = (id) => {
         const newTodos = todos.map(todo => {
             return todo.id === id ? { ...todo, completed: !todo.completed } : todo
         })
         setTodos(newTodos)
     }
-
-
 
     const deleteTodo = (id) => {
         const newTodos = todos.filter(todo => {
@@ -36,9 +27,12 @@ function TodoList() {
         setTodos(newTodos)
     }
 
-    const deleteAll = () => {
-        setTodos([])
-        localStorage.setItem('index', 0)
+    const addTodo = () => {
+        const newTodo = document.getElementById('newTodo').value
+        if (newTodo === '') return
+        const newTodos = [...todos, { id: localStorage.getItem('index'), label: newTodo, completed: false }]
+        localStorage.setItem('index', parseInt(localStorage.getItem('index')) + 1 || parseInt(todos.lenght) + 1)
+        setTodos(newTodos)
     }
 
     const checkAll = () => {
@@ -62,15 +56,20 @@ function TodoList() {
         setTodos(newTodos)
     }
 
+    const deleteAll = () => {
+        setTodos([])
+        localStorage.setItem('index', 0)
+    }
     
     return (
         <>
-            <input id="newTodo" type='text' />
-            <button onClick={() => { addTodo() }}>Write</button>
-            <button onClick={() => { checkAll() }}>Check all</button>
-            <button onClick={() => { unCheckAll() }}>uncheck all</button>
-            <button onClick={() => { deleteSelected() }}>Delete checked</button>
-            <button onClick={() => { deleteAll() }}>Delete all</button>
+            <TodoButtons
+                addTodo = {addTodo}
+                checkAll = {checkAll}
+                unCheckAll = {unCheckAll}
+                deleteSelected = {deleteSelected}
+                deleteAll = {deleteAll}
+            />
             <ul className='todolist'>
                 {todos.map((todo, index) =>
                     <Todoitem
